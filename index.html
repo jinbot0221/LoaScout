@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="로스트아크 화면 공유 기반 AI 전투력 분석과 딜 상승 가이드를 제공하는 LoaScout 랜딩 페이지" />
+    <title>LoaScout - 로스트아크 AI 전투력 분석기</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <nav class="nav" aria-label="주요 메뉴">
+          <div class="brand"><span aria-hidden="true">⚔️</span> LoaScout</div>
+          <div class="nav-links">
+            <a href="#features">기능</a>
+            <a href="#analysis">AI 분석</a>
+            <a href="#guide">가이드</a>
+          </div>
+        </nav>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">✨ Lost Ark AI DPS Coach</div>
+            <h1>화면 공유만으로 전투력을 읽고, 더 넣을 수 있는 딜을 찾아드립니다.</h1>
+            <p>
+              로스트아크 게임 창, 전체 화면, 브라우저 탭 중 공유할 화면을 직접 선택해 전투력 분석기를 연결합니다.
+              AI가 화면 속 수치와 전투 흐름을 해석해 오늘 바로 개선할 수 있는 딜 상승 가이드를 제공합니다.
+            </p>
+            <div class="share-picker" aria-label="공유할 화면 종류 선택">
+              <button type="button" data-share-surface="window" aria-pressed="true">게임 창</button>
+              <button type="button" data-share-surface="monitor" aria-pressed="false">전체 화면</button>
+              <button type="button" data-share-surface="browser" aria-pressed="false">브라우저 탭</button>
+            </div>
+            <div class="actions">
+              <button class="primary" id="shareButton">🖥️ 선택한 화면 공유</button>
+              <button class="secondary" id="demoButton">▶️ 데모 분석 실행</button>
+            </div>
+          </div>
+
+          <div class="analysis-card" id="analysis">
+            <div class="card-header">
+              <div><span class="live-dot"></span>실시간 전투력 분석</div>
+              <span aria-hidden="true">🛡️</span>
+            </div>
+            <div class="screen" id="screenPreview">
+              <video id="previewVideo" autoplay muted playsinline hidden></video>
+              <div class="capture-placeholder" aria-hidden="true">
+                <div class="reticle">◎</div>
+                <div class="boss-bar"><span></span></div>
+                <div class="analysis-lines">
+                  <span>전투력 분석기 OCR 대기</span>
+                  <span>보스 패턴/딜 타임 감지 대기</span>
+                  <span>스킬 사이클 타임라인 준비</span>
+                </div>
+              </div>
+              <p id="analysisState">공유할 화면 종류를 선택하면 분석 대시보드가 활성화됩니다</p>
+            </div>
+            <div class="metric-grid">
+              <div class="metric purple"><span>예상 딜 상승</span><strong>+18.6%</strong></div>
+              <div class="metric orange"><span>딜 손실 구간</span><strong>6곳</strong></div>
+              <div class="metric green"><span>분석 신뢰도</span><strong>92%</strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features" id="features">
+        <article class="feature"><div class="feature-icon">🤖</div><h2>AI 화면 인식</h2><p>전투 화면, 스킬 아이콘, 보스 HP바, 전투력 분석기 수치를 함께 읽어 상황별 딜 손실을 추정합니다.</p></article>
+        <article class="feature"><div class="feature-icon">📈</div><h2>실시간 사이클 추적</h2><p>쿨타임 공백, 주력기 미사용, 버프 누락을 타임라인으로 표시해 다음 트라이에서 바로 수정할 수 있습니다.</p></article>
+        <article class="feature"><div class="feature-icon">🎯</div><h2>개인화 딜 상승 가이드</h2><p>직업/각인/보석/카드 세팅을 기준으로 가장 효율적인 개선 순서를 추천합니다.</p></article>
+      </section>
+
+      <section class="dashboard">
+        <div class="panel">
+          <div class="section-title">📊 딜 상승 우선순위</div>
+          <article class="recommendation"><div><h3>주력기 쿨타임 공백 감소</h3><p>멸화 보석 스킬 2개가 평균 2.4초 늦게 사용되고 있어 알림 타이밍을 앞당기는 것을 추천합니다.</p></div><strong>+7.8%</strong></article>
+          <article class="recommendation"><div><h3>시너지/자버프 유지율 개선</h3><p>버프 유지율이 81%로 측정되었습니다. 보스 패턴 직후 재진입 루틴을 고정하면 기대 딜이 상승합니다.</p></div><strong>+5.1%</strong></article>
+          <article class="recommendation"><div><h3>백/헤드 적중 위치 보정</h3><p>주요 딜링 구간에서 포지션 이탈이 발생합니다. 이동기 예약 입력과 안전 지대 프리셋을 제안합니다.</p></div><strong>+3.9%</strong></article>
+        </div>
+        <div class="panel guide" id="guide">
+          <div class="section-title">⚡ 사용 흐름</div>
+          <div class="step"><span>1</span><p>게임 창, 전체 화면, 브라우저 탭 중 원하는 공유 대상을 선택해 로스트아크 전투 화면 또는 전투력 분석기를 연결합니다.</p><b>›</b></div>
+          <div class="step"><span>2</span><p>AI가 스킬 적중률, 버프 유지율, 쿨타임 공백, 포지셔닝을 자동 추적합니다.</p><b>›</b></div>
+          <div class="step"><span>3</span><p>현재 세팅에서 즉시 올릴 수 있는 DPS와 우선순위 가이드를 제공합니다.</p><b>›</b></div>
+          <button class="primary wide" id="reportButton">AI 분석 리포트 미리보기</button>
+        </div>
+      </section>
+      <section class="report-preview" id="reportPreview" aria-live="polite" hidden>
+        <div class="report-header">
+          <div>
+            <p class="report-kicker">AI 분석 리포트 미리보기</p>
+            <h2>다음 트라이 예상 딜 상승: <strong>+18.6%</strong></h2>
+          </div>
+          <button type="button" class="report-close" id="reportClose" aria-label="리포트 미리보기 닫기">×</button>
+        </div>
+        <div class="report-grid">
+          <article class="report-card highlight">
+            <span>최우선 개선</span>
+            <h3>주력기 쿨타임 공백 2.4초 단축</h3>
+            <p>딜 몰이 구간 진입 3초 전 주력기 예약 루틴을 고정하면 가장 큰 상승폭을 기대할 수 있습니다.</p>
+          </article>
+          <article class="report-card">
+            <span>버프 유지율</span>
+            <h3>81% → 목표 92%</h3>
+            <div class="progress" aria-label="버프 유지율 81퍼센트"><i style="width: 81%"></i></div>
+          </article>
+          <article class="report-card">
+            <span>포지션 손실</span>
+            <h3>백/헤드 이탈 4회</h3>
+            <p>큰 패턴 이후 안전지대에서 보스 후방으로 재진입하는 이동기 타이밍을 추천합니다.</p>
+          </article>
+        </div>
+        <ol class="report-timeline">
+          <li><strong>00:18</strong><span>자버프 후 주력기 1회 지연 · 약 3.2% 손실</span></li>
+          <li><strong>01:07</strong><span>시너지 갱신 전 딜 몰이 진입 · 약 5.1% 손실</span></li>
+          <li><strong>02:31</strong><span>보스 회전 후 포지션 이탈 · 약 3.9% 손실</span></li>
+        </ol>
+      </section>
+    </main>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
