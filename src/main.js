@@ -80,11 +80,13 @@ function runDemoAnalysis() {
   window.clearTimeout(analysisTimer);
   screenPreview.classList.add('analyzing');
   analysisState.textContent = 'AI가 전투력 분석기와 전투 화면 요소를 분석 중입니다';
+
   analysisTimer = window.setTimeout(() => {
     screenPreview.classList.remove('analyzing');
     analysisState.textContent = '분석 완료: 다음 트라이에서 약 18.6% 딜 상승 여지가 있습니다';
   }, 2200);
 }
+
 
 shareOptions.forEach((button) => {
   button.addEventListener('click', () => updateShareOption(button.dataset.shareSurface));
