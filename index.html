@@ -6,7 +6,6 @@
     <meta name="description" content="로스트아크 화면 공유 기반 AI 전투력 분석과 딜 상승 가이드를 제공하는 LoaScout 랜딩 페이지" />
     <title>LoaScout - 로스트아크 AI 전투력 분석기</title>
     <link rel="stylesheet" href="src/styles.css" />
-
   </head>
   <body>
     <main>
@@ -26,16 +25,12 @@
             <h1>화면 공유만으로 전투력을 읽고, 더 넣을 수 있는 딜을 찾아드립니다.</h1>
             <p>
 
-              로스트아크 게임 창, 전체 화면, 브라우저 탭 중 공유할 화면을 직접 선택해 전투력 분석기를 연결합니다.
-              AI가 화면 속 수치와 전투 흐름을 해석해 오늘 바로 개선할 수 있는 딜 상승 가이드를 제공합니다.
+              화면 공유 버튼을 누르면 브라우저가 제공하는 기본 선택 창에서 공유할 화면을 고를 수 있습니다.
+              AI가 화면 속 전투력 수치와 전투 흐름을 해석해 오늘 바로 개선할 수 있는 딜 상승 가이드를 제공합니다.
             </p>
-            <div class="share-picker" aria-label="공유할 화면 종류 선택">
-              <button type="button" data-share-surface="window" aria-pressed="true">게임 창</button>
-              <button type="button" data-share-surface="monitor" aria-pressed="false">전체 화면</button>
-              <button type="button" data-share-surface="browser" aria-pressed="false">브라우저 탭</button>
-            </div>
             <div class="actions">
-              <button class="primary" id="shareButton">🖥️ 선택한 화면 공유</button>
+              <button class="primary" id="shareButton">🖥️ 화면 공유 시작</button>
+
               <button class="secondary" id="demoButton">▶️ 데모 분석 실행</button>
             </div>
           </div>
@@ -85,7 +80,7 @@
         <div class="panel guide" id="guide">
           <div class="section-title">⚡ 사용 흐름</div>
 
-          <div class="step"><span>1</span><p>게임 창, 전체 화면, 브라우저 탭 중 원하는 공유 대상을 선택해 로스트아크 전투 화면 또는 전투력 분석기를 연결합니다.</p><b>›</b></div>
+          <div class="step"><span>1</span><p>브라우저의 화면 공유 선택 창에서 로스트아크 전투 화면 또는 전투력 분석기를 연결합니다.</p><b>›</b></div>
 
           <div class="step"><span>2</span><p>AI가 스킬 적중률, 버프 유지율, 쿨타임 공백, 포지셔닝을 자동 추적합니다.</p><b>›</b></div>
           <div class="step"><span>3</span><p>현재 세팅에서 즉시 올릴 수 있는 DPS와 우선순위 가이드를 제공합니다.</p><b>›</b></div>
@@ -118,13 +113,46 @@
             <p>큰 패턴 이후 안전지대에서 보스 후방으로 재진입하는 이동기 타이밍을 추천합니다.</p>
           </article>
         </div>
+
+        <div class="report-longform">
+          <article>
+            <h3>종합 분석</h3>
+            <p>
+              이번 전투는 큰 실수로 한 번에 무너진 판이라기보다, 딜을 넣을 수 있는 짧은 구간에서 망설임이 반복되며 누적 손실이 커진 케이스로 보입니다.
+              특히 보스가 패턴을 끝내고 약 2~3초 동안 고정되는 구간에서 바로 스킬을 사용하지 않고 좌우로 걸어 다니는 시간이 여러 번 확인됩니다.
+              이 시간은 생존에는 도움이 되었지만, 이미 위험 판정이 끝난 뒤에도 이동을 이어간 구간이라 실제 딜 상승 관점에서는 가장 먼저 줄여야 할 손실입니다.
+            </p>
+            <p>
+              또한 피격 이상 면역기나 경직 면역기를 사용할 수 있는 상황에서 회피 이동만 선택한 장면이 아쉽습니다.
+              안전하게 피하는 판단 자체는 좋지만, 패턴의 마지막 타격만 버티면 공격 위치를 유지할 수 있는 구간에서는 피면기/경면기를 활용해 자리를 지키는 편이 더 높은 기대 딜로 이어집니다.
+              다음 트라이에서는 “피해야 하는 패턴”과 “버티고 딜을 이어가도 되는 패턴”을 분리해서 판단하는 것이 중요합니다.
+            </p>
+          </article>
+          <article>
+            <h3>장면별 피드백</h3>
+            <ul>
+              <li><strong>00:18</strong> 보스가 고정된 뒤 약 2초 동안 스킬을 사용하지 않고 이동만 했습니다. 이 구간은 바로 딜을 시작해도 되는 타이밍이라 손실이 컸습니다.</li>
+              <li><strong>01:07</strong> 위험 장판이 사라진 뒤에도 후방 재진입을 망설였습니다. 이동을 한 번 덜 하고 공격 위치를 먼저 잡는 루틴이 필요합니다.</li>
+              <li><strong>01:54</strong> 짧은 밀격 패턴에서 피면기 또는 경면기로 자리를 유지할 수 있었지만, 뒤로 빠지면서 딜 타이밍이 끊겼습니다.</li>
+              <li><strong>02:31</strong> 보스 회전 이후 안전 위치를 찾는 동안 공격 공백이 길었습니다. 회전 직후에는 미리 정한 방향으로 붙는 습관을 추천합니다.</li>
+            </ul>
+          </article>
+          <article>
+            <h3>다음 트라이 액션 플랜</h3>
+            <p>
+              첫 번째 목표는 “걸어 다니는 시간”을 줄이는 것입니다. 패턴이 끝난 것을 확인했다면 추가 이동으로 완벽한 위치를 찾기보다, 현재 위치에서 가능한 공격을 먼저 시작하세요.
+              두 번째 목표는 피면기/경면기 사용 기준을 정하는 것입니다. 맞으면 치명적인 패턴은 피하되, 짧은 경직이나 밀격만 있는 패턴은 버티면서 딜을 이어가는 선택지를 연습하면 좋습니다.
+              마지막으로 보스가 크게 이동하거나 회전한 뒤에는 1초 안에 재진입 방향을 결정하는 규칙을 정해두면, 다음 전투에서 약 18.6% 내외의 딜 상승 여지를 기대할 수 있습니다.
+            </p>
+          </article>
+        </div>
         <ol class="report-timeline">
-          <li><strong>00:18</strong><span>자버프 후 주력기 1회 지연 · 약 3.2% 손실</span></li>
-          <li><strong>01:07</strong><span>시너지 갱신 전 딜 몰이 진입 · 약 5.1% 손실</span></li>
-          <li><strong>02:31</strong><span>보스 회전 후 포지션 이탈 · 약 3.9% 손실</span></li>
+          <li><strong>00:18</strong><span>패턴 종료 후 이동만 지속 · 즉시 공격 전환 필요</span></li>
+          <li><strong>01:07</strong><span>후방 재진입 판단 지연 · 약 5.1% 손실</span></li>
+          <li><strong>01:54</strong><span>피면기/경면기 활용 가능 구간에서 과도한 회피</span></li>
+          <li><strong>02:31</strong><span>보스 회전 후 포지션 재설정 지연 · 약 3.9% 손실</span></li>
         </ol>
       </section>
-
     </main>
     <script type="module" src="src/main.js"></script>
   </body>
