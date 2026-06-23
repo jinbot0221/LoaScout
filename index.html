@@ -24,11 +24,17 @@
             <div class="eyebrow">✨ Lost Ark AI DPS Coach</div>
             <h1>화면 공유만으로 전투력을 읽고, 더 넣을 수 있는 딜을 찾아드립니다.</h1>
             <p>
-              로스트아크 게임 화면과 전투력 분석기를 실시간으로 캡처해 스킬 사이클, 버프 유지율,
-              보스 포지셔닝을 AI가 해석합니다. 복잡한 로그 없이도 오늘 바로 개선할 수 있는 딜 상승 가이드를 받으세요.
+
+              로스트아크 게임 창, 전체 화면, 브라우저 탭 중 공유할 화면을 직접 선택해 전투력 분석기를 연결합니다.
+              AI가 화면 속 수치와 전투 흐름을 해석해 오늘 바로 개선할 수 있는 딜 상승 가이드를 제공합니다.
             </p>
+            <div class="share-picker" aria-label="공유할 화면 종류 선택">
+              <button type="button" data-share-surface="window" aria-pressed="true">게임 창</button>
+              <button type="button" data-share-surface="monitor" aria-pressed="false">전체 화면</button>
+              <button type="button" data-share-surface="browser" aria-pressed="false">브라우저 탭</button>
+            </div>
             <div class="actions">
-              <button class="primary" id="shareButton">🖥️ 화면 공유 시작</button>
+              <button class="primary" id="shareButton">🖥️ 선택한 화면 공유</button>
               <button class="secondary" id="demoButton">▶️ 데모 분석 실행</button>
             </div>
           </div>
@@ -39,19 +45,25 @@
               <span aria-hidden="true">🛡️</span>
             </div>
             <div class="screen" id="screenPreview">
+
+              <video id="previewVideo" autoplay muted playsinline hidden></video>
+              <div class="capture-placeholder" aria-hidden="true">
+                <div class="reticle">◎</div>
+                <div class="boss-bar"><span></span></div>
+                <div class="analysis-lines">
+                  <span>전투력 분석기 OCR 대기</span>
+                  <span>보스 패턴/딜 타임 감지 대기</span>
+                  <span>스킬 사이클 타임라인 준비</span>
+                </div>
+              </div>
+              <p id="analysisState">공유할 화면 종류를 선택하면 분석 대시보드가 활성화됩니다</p>
+
               <div class="reticle" aria-hidden="true">◎</div>
               <div class="boss-bar"><span></span></div>
               <div class="skill-row" aria-hidden="true">
                 <div class="skill">Q</div><div class="skill">W</div><div class="skill">E</div><div class="skill">R</div><div class="skill">A</div><div class="skill">S</div>
               </div>
               <p id="analysisState">화면 공유를 시작하면 분석 대시보드가 활성화됩니다</p>
-            </div>
-            <div class="metric-grid">
-              <div class="metric purple"><span>예상 딜 상승</span><strong>+18.6%</strong></div>
-              <div class="metric orange"><span>딜 손실 구간</span><strong>6곳</strong></div>
-              <div class="metric green"><span>분석 신뢰도</span><strong>92%</strong></div>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -70,7 +82,11 @@
         </div>
         <div class="panel guide" id="guide">
           <div class="section-title">⚡ 사용 흐름</div>
+
+          <div class="step"><span>1</span><p>게임 창, 전체 화면, 브라우저 탭 중 원하는 공유 대상을 선택해 로스트아크 전투 화면 또는 전투력 분석기를 연결합니다.</p><b>›</b></div>
+
           <div class="step"><span>1</span><p>화면 공유로 로스트아크 전투 화면 또는 전투력 분석기를 연결합니다.</p><b>›</b></div>
+
           <div class="step"><span>2</span><p>AI가 스킬 적중률, 버프 유지율, 쿨타임 공백, 포지셔닝을 자동 추적합니다.</p><b>›</b></div>
           <div class="step"><span>3</span><p>현재 세팅에서 즉시 올릴 수 있는 DPS와 우선순위 가이드를 제공합니다.</p><b>›</b></div>
           <button class="primary wide" id="reportButton">AI 분석 리포트 미리보기</button>
