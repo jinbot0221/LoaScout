@@ -92,7 +92,8 @@ h1 { font-size: clamp(2.7rem, 6.4vw, 5.55rem); line-height: 1.02; margin: 0; let
   .brand { font-size: 1.18rem; }
   h1 { font-size: clamp(2.35rem, 12vw, 3.8rem); line-height: 1.06; letter-spacing: -.04em; }
   .hero-copy p { font-size: 1rem; line-height: 1.7; margin: 22px 0; }
-  .primary, .secondary { width: 100%; }
+  .share-picker { display: grid; grid-template-columns: 1fr; }
+  .share-picker button, .primary, .secondary { width: 100%; }
   .actions { display: grid; grid-template-columns: 1fr; }
   .analysis-card, .panel, .feature { border-radius: 22px; }
   .screen { min-height: 280px; }
@@ -143,6 +144,7 @@ h1 { font-size: clamp(2.7rem, 6.4vw, 5.55rem); line-height: 1.02; margin: 0; let
 @media (max-width: 420px) {
   .report-preview { margin-left: 14px; margin-right: 14px; padding: 18px; }
 }
+
 .report-longform { display: grid; gap: 14px; margin-top: 18px; }
 .report-longform article { border: 1px solid rgba(255,255,255,.09); border-radius: 22px; padding: 22px; background: rgba(8,10,19,.34); }
 .report-longform h3 { margin: 0 0 12px; color: #f8fbff; font-size: 1.2rem; }
@@ -155,3 +157,4 @@ h1 { font-size: clamp(2.7rem, 6.4vw, 5.55rem); line-height: 1.02; margin: 0; let
   .report-longform article { padding: 18px; }
   .report-longform p, .report-longform ul { line-height: 1.75; }
 }
+

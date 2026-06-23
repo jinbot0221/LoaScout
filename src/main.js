@@ -3,13 +3,16 @@ const analysisState = document.querySelector('#analysisState');
 const shareButton = document.querySelector('#shareButton');
 const demoButton = document.querySelector('#demoButton');
 const reportButton = document.querySelector('#reportButton');
+
 const previewVideo = document.querySelector('#previewVideo');
 const reportPreview = document.querySelector('#reportPreview');
 const reportClose = document.querySelector('#reportClose');
 
+
 let sharing = false;
 let analysisTimer;
 let activeStream;
+
 
 async function setSharing() {
   if (!navigator.mediaDevices?.getDisplayMedia) {
@@ -20,20 +23,26 @@ async function setSharing() {
   try {
     activeStream?.getTracks().forEach((track) => track.stop());
     activeStream = await navigator.mediaDevices.getDisplayMedia({
+
       video: { frameRate: { ideal: 30, max: 60 } },
+
       audio: false,
     });
     sharing = true;
     previewVideo.srcObject = activeStream;
     previewVideo.hidden = false;
     screenPreview.classList.add('active', 'has-stream');
+
     analysisState.textContent = '화면 공유 중입니다. 분석을 시작하세요';
+
 
     const [track] = activeStream.getVideoTracks();
     track?.addEventListener('ended', stopSharing);
   } catch (error) {
     const message = error?.name === 'NotAllowedError'
+
       ? '화면 공유 권한이 취소되었습니다. 다시 시도해주세요'
+
       : '화면 공유를 시작하지 못했습니다. 데모 분석은 계속 실행할 수 있습니다';
     analysisState.textContent = message;
   }
@@ -45,7 +54,9 @@ function stopSharing() {
   previewVideo.srcObject = null;
   previewVideo.hidden = true;
   screenPreview.classList.remove('active', 'has-stream', 'analyzing');
+
   analysisState.textContent = '화면 공유가 종료되었습니다. 다시 공유를 시작해주세요';
+
 }
 
 function enableMockSharing(message = '데모 화면 공유가 준비되었습니다. 분석을 시작하세요') {
@@ -54,7 +65,9 @@ function enableMockSharing(message = '데모 화면 공유가 준비되었습니
   analysisState.textContent = message;
 }
 
+
 function runDemoAnalysis() {
+
   if (!sharing) enableMockSharing();
   window.clearTimeout(analysisTimer);
   screenPreview.classList.add('analyzing');
