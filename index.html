@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="로스트아크 화면 공유 기반 AI 전투력 분석과 딜 상승 가이드를 제공하는 LoaScout 랜딩 페이지" />
     <title>LoaScout - 로스트아크 AI 전투력 분석기</title>
-
     <link rel="stylesheet" href="src/styles.css" />
 
   </head>
@@ -93,6 +92,39 @@
           <button class="primary wide" id="reportButton">AI 분석 리포트 미리보기</button>
         </div>
       </section>
+
+      <section class="report-preview" id="reportPreview" aria-live="polite" hidden>
+        <div class="report-header">
+          <div>
+            <p class="report-kicker">AI 분석 리포트 미리보기</p>
+            <h2>다음 트라이 예상 딜 상승: <strong>+18.6%</strong></h2>
+          </div>
+          <button type="button" class="report-close" id="reportClose" aria-label="리포트 미리보기 닫기">×</button>
+        </div>
+        <div class="report-grid">
+          <article class="report-card highlight">
+            <span>최우선 개선</span>
+            <h3>주력기 쿨타임 공백 2.4초 단축</h3>
+            <p>딜 몰이 구간 진입 3초 전 주력기 예약 루틴을 고정하면 가장 큰 상승폭을 기대할 수 있습니다.</p>
+          </article>
+          <article class="report-card">
+            <span>버프 유지율</span>
+            <h3>81% → 목표 92%</h3>
+            <div class="progress" aria-label="버프 유지율 81퍼센트"><i style="width: 81%"></i></div>
+          </article>
+          <article class="report-card">
+            <span>포지션 손실</span>
+            <h3>백/헤드 이탈 4회</h3>
+            <p>큰 패턴 이후 안전지대에서 보스 후방으로 재진입하는 이동기 타이밍을 추천합니다.</p>
+          </article>
+        </div>
+        <ol class="report-timeline">
+          <li><strong>00:18</strong><span>자버프 후 주력기 1회 지연 · 약 3.2% 손실</span></li>
+          <li><strong>01:07</strong><span>시너지 갱신 전 딜 몰이 진입 · 약 5.1% 손실</span></li>
+          <li><strong>02:31</strong><span>보스 회전 후 포지션 이탈 · 약 3.9% 손실</span></li>
+        </ol>
+      </section>
+
     </main>
     <script type="module" src="src/main.js"></script>
   </body>

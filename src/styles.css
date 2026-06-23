@@ -40,6 +40,7 @@ h1 { font-size: clamp(2.7rem, 6.4vw, 5.55rem); line-height: 1.02; margin: 0; let
 .primary { color: white; background: linear-gradient(135deg, #7c3aed, #06b6d4); box-shadow: 0 18px 45px rgba(124,58,237,.34); }
 .secondary { color: #dbeafe; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.14); }
 .primary:hover, .secondary:hover, .share-picker button:hover { transform: translateY(-2px); }
+
 .analysis-card, .panel, .feature { border: 1px solid rgba(255,255,255,.12); background: linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.045)); box-shadow: 0 24px 80px rgba(0,0,0,.36); backdrop-filter: blur(18px); }
 .analysis-card { border-radius: 30px; padding: 18px; width: 100%; max-width: 520px; justify-self: end; }
 .card-header { display: flex; justify-content: space-between; color: #e0e7ff; font-weight: 900; margin: 6px 8px 16px; }
@@ -70,12 +71,10 @@ h1 { font-size: clamp(2.7rem, 6.4vw, 5.55rem); line-height: 1.02; margin: 0; let
 .feature p, .recommendation p, .step p { color: #b8c2d8; line-height: 1.65; }
 .dashboard { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr); gap: 22px; margin-top: 28px; margin-bottom: 80px; }
 .panel { border-radius: 30px; padding: 28px; min-width: 0; }
-
 .section-title { font-size: 1.3rem; font-weight: 900; margin-bottom: 20px; color: #e0e7ff; }
 .recommendation { display: flex; justify-content: space-between; gap: 22px; padding: 20px 0; border-top: 1px solid rgba(255,255,255,.1); }
 .recommendation h3 { margin: 0 0 8px; } .recommendation p { margin: 0; }
 .recommendation strong { color: #67e8f9; font-size: 1.5rem; white-space: nowrap; }
-
 .step { display: grid; grid-template-columns: 38px minmax(0, 1fr) 22px; align-items: center; gap: 12px; padding: 14px 0; border-top: 1px solid rgba(255,255,255,.1); }
 .step span { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: #312e81; font-weight: 900; }
 .wide { width: 100%; margin-top: 18px; }
@@ -121,5 +120,34 @@ h1 { font-size: clamp(2.7rem, 6.4vw, 5.55rem); line-height: 1.02; margin: 0; let
   .analysis-lines span { font-size: .78rem; padding: 8px 10px; }
   .screen p { left: 10px; right: 10px; font-size: .78rem; border-radius: 14px; }
   .panel, .feature { padding: 22px; }
+}
+
+.report-preview { max-width: 1180px; margin: -36px auto 86px; padding: 30px; border: 1px solid rgba(103,232,249,.2); border-radius: 30px; background: linear-gradient(180deg, rgba(15,23,42,.94), rgba(30,27,75,.86)); box-shadow: 0 24px 80px rgba(0,0,0,.4); }
+.report-preview[hidden] { display: none; }
+.report-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 18px; margin-bottom: 22px; }
+.report-kicker { margin: 0 0 8px; color: #67e8f9; font-weight: 900; }
+.report-header h2 { margin: 0; font-size: clamp(1.7rem, 4vw, 2.6rem); letter-spacing: -.04em; }
+.report-header strong { color: #86efac; }
+.report-close { width: 40px; height: 40px; border-radius: 50%; color: #dbeafe; background: rgba(255,255,255,.1); font-size: 1.5rem; line-height: 1; }
+.report-grid { display: grid; grid-template-columns: 1.2fr .8fr .9fr; gap: 14px; }
+.report-card { border: 1px solid rgba(255,255,255,.1); border-radius: 22px; padding: 20px; background: rgba(255,255,255,.06); }
+.report-card.highlight { background: linear-gradient(135deg, rgba(124,58,237,.28), rgba(6,182,212,.16)); }
+.report-card span { color: #93c5fd; font-size: .85rem; font-weight: 900; }
+.report-card h3 { margin: 10px 0; font-size: 1.18rem; }
+.report-card p { margin: 0; color: #cbd5e1; line-height: 1.65; }
+.progress { height: 12px; border-radius: 999px; background: rgba(15,23,42,.8); overflow: hidden; margin-top: 18px; }
+.progress i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #22c55e, #67e8f9); }
+.report-timeline { display: grid; gap: 10px; padding: 0; margin: 18px 0 0; list-style: none; }
+.report-timeline li { display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 12px; align-items: center; border: 1px solid rgba(255,255,255,.08); border-radius: 16px; padding: 12px 14px; background: rgba(8,10,19,.38); }
+.report-timeline strong { color: #fdba74; }
+.report-timeline span { color: #dbeafe; }
+@media (max-width: 760px) {
+  .report-preview { margin: 0 18px 52px; padding: 22px; border-radius: 22px; }
+  .report-header { align-items: flex-start; }
+  .report-grid { grid-template-columns: 1fr; }
+  .report-timeline li { grid-template-columns: 1fr; gap: 4px; }
+}
+@media (max-width: 420px) {
+  .report-preview { margin-left: 14px; margin-right: 14px; padding: 18px; }
 }
 
