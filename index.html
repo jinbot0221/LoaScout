@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="로스트아크 화면 공유 기반 AI 전투력 분석과 딜 상승 가이드를 제공하는 LoaScout 랜딩 페이지" />
+    <title>LoaScout - 로스트아크 AI 전투력 분석기</title>
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <nav class="nav" aria-label="주요 메뉴">
+          <div class="brand"><span aria-hidden="true">⚔️</span> LoaScout</div>
+          <div class="nav-links">
+            <a href="#features">기능</a>
+            <a href="#analysis">AI 분석</a>
+            <a href="#guide">가이드</a>
+          </div>
+        </nav>
+
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="eyebrow">✨ Lost Ark AI DPS Coach</div>
+            <h1>화면 공유만으로 전투력을 읽고, 더 넣을 수 있는 딜을 찾아드립니다.</h1>
+            <p>
+              로스트아크 게임 창, 전체 화면, 브라우저 탭 중 공유할 화면을 직접 선택해 전투력 분석기를 연결합니다.
+              AI가 화면 속 수치와 전투 흐름을 해석해 오늘 바로 개선할 수 있는 딜 상승 가이드를 제공합니다.
+            </p>
+            <div class="share-picker" aria-label="공유할 화면 종류 선택">
+              <button type="button" data-share-surface="window" aria-pressed="true">게임 창</button>
+              <button type="button" data-share-surface="monitor" aria-pressed="false">전체 화면</button>
+              <button type="button" data-share-surface="browser" aria-pressed="false">브라우저 탭</button>
+            </div>
+            <div class="actions">
+              <button class="primary" id="shareButton">🖥️ 선택한 화면 공유</button>
+              <button class="secondary" id="demoButton">▶️ 데모 분석 실행</button>
+            </div>
+          </div>
+
+          <div class="analysis-card" id="analysis">
+            <div class="card-header">
+              <div><span class="live-dot"></span>실시간 전투력 분석</div>
+              <span aria-hidden="true">🛡️</span>
+            </div>
+            <div class="screen" id="screenPreview">
+              <video id="previewVideo" autoplay muted playsinline hidden></video>
+              <div class="capture-placeholder" aria-hidden="true">
+                <div class="reticle">◎</div>
+                <div class="boss-bar"><span></span></div>
+                <div class="analysis-lines">
+                  <span>전투력 분석기 OCR 대기</span>
+                  <span>보스 패턴/딜 타임 감지 대기</span>
+                  <span>스킬 사이클 타임라인 준비</span>
+                </div>
+              </div>
+              <p id="analysisState">공유할 화면 종류를 선택하면 분석 대시보드가 활성화됩니다</p>
+            </div>
+            <div class="metric-grid">
+              <div class="metric purple"><span>예상 딜 상승</span><strong>+18.6%</strong></div>
+              <div class="metric orange"><span>딜 손실 구간</span><strong>6곳</strong></div>
+              <div class="metric green"><span>분석 신뢰도</span><strong>92%</strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="features" id="features">
+        <article class="feature"><div class="feature-icon">🤖</div><h2>AI 화면 인식</h2><p>전투 화면, 스킬 아이콘, 보스 HP바, 전투력 분석기 수치를 함께 읽어 상황별 딜 손실을 추정합니다.</p></article>
+        <article class="feature"><div class="feature-icon">📈</div><h2>실시간 사이클 추적</h2><p>쿨타임 공백, 주력기 미사용, 버프 누락을 타임라인으로 표시해 다음 트라이에서 바로 수정할 수 있습니다.</p></article>
+        <article class="feature"><div class="feature-icon">🎯</div><h2>개인화 딜 상승 가이드</h2><p>직업/각인/보석/카드 세팅을 기준으로 가장 효율적인 개선 순서를 추천합니다.</p></article>
+      </section>
+
+      <section class="dashboard">
+        <div class="panel">
+          <div class="section-title">📊 딜 상승 우선순위</div>
+          <article class="recommendation"><div><h3>주력기 쿨타임 공백 감소</h3><p>멸화 보석 스킬 2개가 평균 2.4초 늦게 사용되고 있어 알림 타이밍을 앞당기는 것을 추천합니다.</p></div><strong>+7.8%</strong></article>
+          <article class="recommendation"><div><h3>시너지/자버프 유지율 개선</h3><p>버프 유지율이 81%로 측정되었습니다. 보스 패턴 직후 재진입 루틴을 고정하면 기대 딜이 상승합니다.</p></div><strong>+5.1%</strong></article>
+          <article class="recommendation"><div><h3>백/헤드 적중 위치 보정</h3><p>주요 딜링 구간에서 포지션 이탈이 발생합니다. 이동기 예약 입력과 안전 지대 프리셋을 제안합니다.</p></div><strong>+3.9%</strong></article>
+        </div>
+        <div class="panel guide" id="guide">
+          <div class="section-title">⚡ 사용 흐름</div>
+          <div class="step"><span>1</span><p>게임 창, 전체 화면, 브라우저 탭 중 원하는 공유 대상을 선택해 로스트아크 전투 화면 또는 전투력 분석기를 연결합니다.</p><b>›</b></div>
+          <div class="step"><span>2</span><p>AI가 스킬 적중률, 버프 유지율, 쿨타임 공백, 포지셔닝을 자동 추적합니다.</p><b>›</b></div>
+          <div class="step"><span>3</span><p>현재 세팅에서 즉시 올릴 수 있는 DPS와 우선순위 가이드를 제공합니다.</p><b>›</b></div>
+          <button class="primary wide" id="reportButton">AI 분석 리포트 미리보기</button>
+        </div>
+      </section>
+      <section class="report-preview" id="reportPreview" aria-live="polite" hidden>
+        <div class="report-header">
+          <div>
+            <p class="report-kicker">AI 분석 리포트 미리보기</p>
+            <h2>다음 트라이 예상 딜 상승: <strong>+18.6%</strong></h2>
+          </div>
+          <button type="button" class="report-close" id="reportClose" aria-label="리포트 미리보기 닫기">×</button>
+        </div>
+        <div class="report-grid">
+          <article class="report-card highlight">
+            <span>최우선 개선</span>
+            <h3>주력기 쿨타임 공백 2.4초 단축</h3>
+            <p>딜 몰이 구간 진입 3초 전 주력기 예약 루틴을 고정하면 가장 큰 상승폭을 기대할 수 있습니다.</p>
+          </article>
+          <article class="report-card">
+            <span>버프 유지율</span>
+            <h3>81% → 목표 92%</h3>
+            <div class="progress" aria-label="버프 유지율 81퍼센트"><i style="width: 81%"></i></div>
+          </article>
+          <article class="report-card">
+            <span>포지션 손실</span>
+            <h3>백/헤드 이탈 4회</h3>
+            <p>큰 패턴 이후 안전지대에서 보스 후방으로 재진입하는 이동기 타이밍을 추천합니다.</p>
+          </article>
+        </div>
+        <div class="report-longform">
+          <article>
+            <h3>종합 분석</h3>
+            <p>
+              이번 전투는 큰 실수로 한 번에 무너진 판이라기보다, 딜을 넣을 수 있는 짧은 구간에서 망설임이 반복되며 누적 손실이 커진 케이스로 보입니다.
+              특히 보스가 패턴을 끝내고 약 2~3초 동안 고정되는 구간에서 바로 스킬을 사용하지 않고 좌우로 걸어 다니는 시간이 여러 번 확인됩니다.
+              이 시간은 생존에는 도움이 되었지만, 이미 위험 판정이 끝난 뒤에도 이동을 이어간 구간이라 실제 딜 상승 관점에서는 가장 먼저 줄여야 할 손실입니다.
+            </p>
+            <p>
+              또한 피격 이상 면역기나 경직 면역기를 사용할 수 있는 상황에서 회피 이동만 선택한 장면이 아쉽습니다.
+              안전하게 피하는 판단 자체는 좋지만, 패턴의 마지막 타격만 버티면 공격 위치를 유지할 수 있는 구간에서는 피면기/경면기를 활용해 자리를 지키는 편이 더 높은 기대 딜로 이어집니다.
+              다음 트라이에서는 “피해야 하는 패턴”과 “버티고 딜을 이어가도 되는 패턴”을 분리해서 판단하는 것이 중요합니다.
+            </p>
+          </article>
+          <article>
+            <h3>장면별 피드백</h3>
+            <ul>
+              <li><strong>00:18</strong> 보스가 고정된 뒤 약 2초 동안 스킬을 사용하지 않고 이동만 했습니다. 이 구간은 바로 딜을 시작해도 되는 타이밍이라 손실이 컸습니다.</li>
+              <li><strong>01:07</strong> 위험 장판이 사라진 뒤에도 후방 재진입을 망설였습니다. 이동을 한 번 덜 하고 공격 위치를 먼저 잡는 루틴이 필요합니다.</li>
+              <li><strong>01:54</strong> 짧은 밀격 패턴에서 피면기 또는 경면기로 자리를 유지할 수 있었지만, 뒤로 빠지면서 딜 타이밍이 끊겼습니다.</li>
+              <li><strong>02:31</strong> 보스 회전 이후 안전 위치를 찾는 동안 공격 공백이 길었습니다. 회전 직후에는 미리 정한 방향으로 붙는 습관을 추천합니다.</li>
+            </ul>
+          </article>
+          <article>
+            <h3>다음 트라이 액션 플랜</h3>
+            <p>
+              첫 번째 목표는 “걸어 다니는 시간”을 줄이는 것입니다. 패턴이 끝난 것을 확인했다면 추가 이동으로 완벽한 위치를 찾기보다, 현재 위치에서 가능한 공격을 먼저 시작하세요.
+              두 번째 목표는 피면기/경면기 사용 기준을 정하는 것입니다. 맞으면 치명적인 패턴은 피하되, 짧은 경직이나 밀격만 있는 패턴은 버티면서 딜을 이어가는 선택지를 연습하면 좋습니다.
+              마지막으로 보스가 크게 이동하거나 회전한 뒤에는 1초 안에 재진입 방향을 결정하는 규칙을 정해두면, 다음 전투에서 약 18.6% 내외의 딜 상승 여지를 기대할 수 있습니다.
+            </p>
+          </article>
+        </div>
+        <ol class="report-timeline">
+          <li><strong>00:18</strong><span>패턴 종료 후 이동만 지속 · 즉시 공격 전환 필요</span></li>
+          <li><strong>01:07</strong><span>후방 재진입 판단 지연 · 약 5.1% 손실</span></li>
+          <li><strong>01:54</strong><span>피면기/경면기 활용 가능 구간에서 과도한 회피</span></li>
+          <li><strong>02:31</strong><span>보스 회전 후 포지션 재설정 지연 · 약 3.9% 손실</span></li>
+        </ol>
+      </section>
+    </main>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
