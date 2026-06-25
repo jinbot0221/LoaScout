@@ -66,7 +66,7 @@ function enableMockSharing(message = '데모 화면 공유가 준비되었습니
 }
 
 
-function runDemoAnalysis() {
+function runDemoAnalysis({ showReport = false } = {}) {
 
   if (!sharing) enableMockSharing();
   window.clearTimeout(analysisTimer);
