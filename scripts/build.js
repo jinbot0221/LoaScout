@@ -5,4 +5,5 @@ await mkdir('dist/src', { recursive: true });
 await cp('index.html', 'dist/index.html');
 await cp('src/main.js', 'dist/src/main.js');
 await cp('src/styles.css', 'dist/src/styles.css');
+await cp('market-pulse', 'dist/market-pulse', { recursive: true });
 console.log('Built static site to dist/');
