@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="국내 증시의 주도 섹터와 종목 흐름을 한눈에 확인하는 실시간 마켓 대시보드" />
+    <title>MARKET PULSE — 실시간 주도 섹터</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="logo" href="#" aria-label="Market Pulse 홈"><span>MARKET</span>PULSE<i></i></a>
+      <nav aria-label="주요 메뉴">
+        <a class="active" href="#market">마켓</a><a href="#sectors">섹터</a><a href="#stocks">종목</a><a href="#insight">인사이트</a>
+      </nav>
+      <div class="market-status"><span class="status-dot"></span><b>LIVE</b><time id="clock">15:32:08</time><span class="divider"></span><button class="icon-button" id="themeToggle" aria-label="테마 전환">◐</button></div>
+    </header>
+
+    <main id="market">
+      <section class="market-head">
+        <div><p class="eyebrow">TODAY'S MARKET</p><h1>오늘의 주도 섹터</h1><p class="subcopy"><time id="today">2025년 5월 28일</time> · 장중 실시간 데이터</p></div>
+        <div class="index-strip" aria-label="주요 지수">
+          <article><span>KOSPI</span><strong>2,756.38</strong><em class="up">+0.62%</em></article>
+          <article><span>KOSDAQ</span><strong>842.17</strong><em class="up">+1.14%</em></article>
+          <article><span>USD/KRW</span><strong>1,365.20</strong><em class="down">-0.31%</em></article>
+        </div>
+      </section>
+
+      <section class="leader-grid" id="sectors" aria-label="주도 섹터 순위">
+        <article class="sector-card featured" data-sector="반도체">
+          <div class="rank">01</div><div class="sector-icon chip">⌁</div>
+          <div class="card-top"><span class="tag">LEADING</span><span class="heat">매수강도 <b>매우 강함</b></span></div>
+          <h2>반도체</h2><div class="change up">+4.82%</div>
+          <div class="spark"><svg viewBox="0 0 320 84" preserveAspectRatio="none" aria-hidden="true"><path class="area" d="M0 73L23 69L46 72L69 57L92 62L115 43L138 47L161 31L184 39L207 18L230 25L253 9L276 17L300 4L320 8V84H0Z"/><path d="M0 73L23 69L46 72L69 57L92 62L115 43L138 47L161 31L184 39L207 18L230 25L253 9L276 17L300 4L320 8"/></svg></div>
+          <div class="volume"><span>거래대금</span><strong>8.4조</strong><div><i style="width:92%"></i></div></div>
+          <ul><li><span>SK하이닉스</span><b class="up">+6.21%</b></li><li><span>삼성전자</span><b class="up">+3.84%</b></li><li><span>한미반도체</span><b class="up">+8.93%</b></li></ul>
+        </article>
+
+        <article class="sector-card" data-sector="방산">
+          <div class="rank">02</div><div class="sector-icon shield">◇</div><div class="card-top"><span class="tag">STRONG</span><span class="heat">매수강도 <b>강함</b></span></div>
+          <h2>방산</h2><div class="change up">+3.67%</div>
+          <div class="spark"><svg viewBox="0 0 320 84" preserveAspectRatio="none"><path class="area" d="M0 70L32 64L64 68L96 49L128 53L160 34L192 42L224 23L256 31L288 13L320 18V84H0Z"/><path d="M0 70L32 64L64 68L96 49L128 53L160 34L192 42L224 23L256 31L288 13L320 18"/></svg></div>
+          <div class="volume"><span>거래대금</span><strong>3.1조</strong><div><i style="width:71%"></i></div></div>
+          <ul><li><span>한화에어로스페이스</span><b class="up">+5.47%</b></li><li><span>현대로템</span><b class="up">+4.12%</b></li><li><span>LIG넥스원</span><b class="up">+3.08%</b></li></ul>
+        </article>
+
+        <article class="sector-card" data-sector="조선">
+          <div class="rank">03</div><div class="sector-icon ship">≋</div><div class="card-top"><span class="tag">ACTIVE</span><span class="heat">매수강도 <b>강함</b></span></div>
+          <h2>조선</h2><div class="change up">+2.91%</div>
+          <div class="spark"><svg viewBox="0 0 320 84" preserveAspectRatio="none"><path class="area" d="M0 68L32 71L64 58L96 61L128 39L160 46L192 32L224 38L256 18L288 25L320 14V84H0Z"/><path d="M0 68L32 71L64 58L96 61L128 39L160 46L192 32L224 38L256 18L288 25L320 14"/></svg></div>
+          <div class="volume"><span>거래대금</span><strong>2.6조</strong><div><i style="width:59%"></i></div></div>
+          <ul><li><span>HD한국조선해양</span><b class="up">+4.31%</b></li><li><span>삼성중공업</span><b class="up">+2.87%</b></li><li><span>한화오션</span><b class="up">+2.44%</b></li></ul>
+        </article>
+      </section>
+
+      <section class="lower-grid" id="stocks">
+        <article class="panel flow-panel">
+          <div class="panel-title"><div><p>SECTOR FLOW</p><h2>섹터 모멘텀</h2></div><div class="tabs" role="tablist"><button class="active" data-range="day">오늘</button><button data-range="week">1주</button><button data-range="month">1개월</button></div></div>
+          <div class="bubble-map" id="bubbleMap">
+            <button class="bubble b1" style="--size:164px" data-value="+4.82%"><b>반도체</b><span>+4.82%</span></button>
+            <button class="bubble b2" style="--size:128px" data-value="+3.67%"><b>방산</b><span>+3.67%</span></button>
+            <button class="bubble b3" style="--size:112px" data-value="+2.91%"><b>조선</b><span>+2.91%</span></button>
+            <button class="bubble b4" style="--size:92px" data-value="+1.84%"><b>전력기기</b><span>+1.84%</span></button>
+            <button class="bubble b5 negative" style="--size:86px" data-value="-1.26%"><b>2차전지</b><span>-1.26%</span></button>
+            <button class="bubble b6" style="--size:74px" data-value="+0.92%"><b>바이오</b><span>+0.92%</span></button>
+            <button class="bubble b7 negative" style="--size:67px" data-value="-0.73%"><b>게임</b><span>-0.73%</span></button>
+          </div>
+          <div class="legend"><span><i class="positive-dot"></i>상승</span><span><i class="negative-dot"></i>하락</span><small>원의 크기는 거래대금 비중을 나타냅니다</small></div>
+        </article>
+
+        <aside class="panel watch-panel" id="insight">
+          <div class="panel-title"><div><p>LIVE RANKING</p><h2>급등 종목</h2></div><button class="more" aria-label="더보기">•••</button></div>
+          <ol class="ranking">
+            <li><i>1</i><div><b>한미반도체</b><span>042700 · 반도체</span></div><strong>178,400<em class="up">+8.93%</em></strong></li>
+            <li><i>2</i><div><b>두산에너빌리티</b><span>034020 · 전력기기</span></div><strong>21,350<em class="up">+7.83%</em></strong></li>
+            <li><i>3</i><div><b>SK하이닉스</b><span>000660 · 반도체</span></div><strong>201,500<em class="up">+6.21%</em></strong></li>
+            <li><i>4</i><div><b>한화에어로스페이스</b><span>012450 · 방산</span></div><strong>242,000<em class="up">+5.47%</em></strong></li>
+            <li><i>5</i><div><b>HD한국조선해양</b><span>009540 · 조선</span></div><strong>148,700<em class="up">+4.31%</em></strong></li>
+          </ol>
+          <button class="ranking-all">전체 순위 보기 <span>→</span></button>
+        </aside>
+      </section>
+      <p class="disclaimer">본 서비스의 데이터는 정보 제공 목적으로, 투자 권유가 아닙니다. <span>데이터는 20초 간격으로 갱신됩니다.</span></p>
+    </main>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
